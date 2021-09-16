@@ -3,7 +3,15 @@
         <title>my name
          </title>
     </head>
+    <style>
+        table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        }
+    </style>
     <body>
+        <a href="bonus.html ">BONUS file</a>
         <h1> Sravanthi gundampally
         </h1>
         <h3>
@@ -15,5 +23,103 @@
     Its <b>telangana</b> it is one of the state in India</b>.
     It's very <b>important</b> try biryani in hyderabad which is the capital of telangana.
 </p>
+<hr>
+
+<h4> Route Map to my favourite place</h4>
+
+<ol>
+    <li> Go to the MCI aiport, Kansas city.</li>
+    <li> Board a flight to RGI,Hyderabad.
+<ol>
+    <li> Book a cab from airport to paradise.</li>
+    <li> Enjoy the spices of south India.</li>
+</ol>
+</li>
+</ol>
+
+<ul>
+    <li>Bring a brand new camera </li>
+    <li> Power Bank</li>
+    <li> debit card </li>
+</ul>
+
+<a href="aboutme.html ">aboutme file</a>
+<hr>
+
+<h3> Recommeneded Drinks</h3>
+
+The below table shows the recommended drinks and their available location and purchase value.
+
+<table>
+    <tr>
+    <th>Drinks</th>
+    <th>Location</th>
+    <th>Price(INR)</th>
+    </tr>
+    
+    <tr>
+        <td>meetapani</td>
+        <td>Delhi</td>
+        <td>25</td>
+    </tr>
+    
+    <tr>
+    <td>oreoshake</td>
+    <td>Sikkim</td>
+    <td>125</td>
+    </tr>
+    
+    <tr>
+    <td>kingfisher</td>
+    <td>Banglore</td>
+    <td>150</td>
+    </tr>
+    
+    <tr>
+    <td>beera</td>
+    <td>Goa</td>
+    <td>449</td>
+    </tr>
+    
+    </table>
+    <hr>
+
+    <h4> Spanning Tree </h4>
+    <blockquote cite = "https://en.wikipedia.org/wiki/Spanning_tree">In the mathematical field of graph theory, a spanning tree T of an undirected graph G is a subgraph that is a tree which includes all of the vertices of G. In general, a graph may have several spanning trees, but a graph that is not connected will not contain a spanning tree . If all of the edges of G are also edges of a spanning tree T of G, then G is a tree and is identical to T.</blockquote>
+    <a href = "https://en.wikipedia.org/wiki/Spanning_tree"> Spanning Tree </a>
+    <pre>
+    
+        truct Edge {
+            int u, v, weight;
+            bool operator<(Edge const& other) {
+                return weight < other.weight;
+            }
+        };
+        
+        int n;
+        vector<Edge> edges;
+        
+        int cost = 0;
+        vector<int> tree_id(n);
+        vector<Edge> result;
+        for (int i = 0; i < n; i++)
+            tree_id[i] = i;
+        
+        sort(edges.begin(), edges.end());
+        
+        for (Edge e : edges) {
+            if (tree_id[e.u] != tree_id[e.v]) {
+                cost += e.weight;
+                result.push_back(e);
+        
+                int old_id = tree_id[e.u], new_id = tree_id[e.v];
+                for (int i = 0; i < n; i++) {
+                    if (tree_id[i] == old_id)
+                        tree_id[i] = new_id;
+                }
+            }
+        }
+
+    </pre>
     </body>
 </html>
